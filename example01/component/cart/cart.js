@@ -117,7 +117,10 @@ const Cart = () => {
                 navigation.navigate("home");
               }}
             >
-                <MaterialIcons style={styles.ic} name="keyboard-backspace" size={35} color="white" />
+          <Image
+            style={styles.ic}
+            source={require("../../assets/image/back-button.png")}
+          />
             </TouchableOpacity>
 
           </View>
@@ -234,27 +237,27 @@ const styles = StyleSheet.create({
 
   },  
   ic: {
-    width: 40,
+    width: 35,
     height: 35,
-    top: 25,
-    left: 55,
-    borderColor: "#007BFF",
-    backgroundColor: "#007BFF",
-    borderWidth: 3,
-    borderRadius:5,
+    top: 20,
+    left: 60,
   },
   ib1: {
     alignItems: "center",
     justifyContent: "center",
-    marginLeft: 150,
+    marginLeft: 140,
   },
   vo: {
-    flexDirection: "row",
+    flexDirection: 'row',
+    height: 90,
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    marginTop: -25,
   },
   ib: {
     alignItems: "center",
     justifyContent: "center",
-    marginLeft: 10,
+    marginLeft: 5,
     width: 115,
   },
 

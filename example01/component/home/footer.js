@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   menu: {
     flex: 1,
     marginLeft: 30,
-    width: 80,
+    width: 70,
   },
   ic: {
     width: 20,
