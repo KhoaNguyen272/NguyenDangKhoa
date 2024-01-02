@@ -88,6 +88,14 @@ const styles = StyleSheet.create({
     left: 35,
     top: 60,
   },
+  lg: {
+    width: 200,
+    height: 200,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10,
+  },
+
 });
 
 export default Header

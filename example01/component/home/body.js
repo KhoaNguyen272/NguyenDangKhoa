@@ -1,8 +1,9 @@
 //content
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, ScrollView, StyleSheet, Button, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet, Button, TouchableOpacity, Alert, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import search from './search';
 
 const Product = ({ item, addToCart }) => {
   const navigation = useNavigation();
@@ -28,6 +29,8 @@ const Body = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(4);
   const [cart, setCart] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState('');
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -43,6 +46,26 @@ const Body = () => {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    // Lọc sản phẩm dựa trên từ khóa tìm kiếm
+    const filterProducts = () => {
+      if (searchKeyword === '') {
+        setFilteredProducts(products);
+      } else {
+        const filtered = products.filter((product) =>
+          product.title.toLowerCase().includes(searchKeyword.toLowerCase())
+        );
+        setFilteredProducts(filtered);
+      }
+    };
+
+    filterProducts();
+  }, [searchKeyword, products]);
+
+  const handleSearch = (keyword) => {
+    setSearchKeyword(keyword);
+  };
 
   const addToCart = async (item) => {
     try {
@@ -85,9 +108,13 @@ const Body = () => {
     <View style={styles.container}>
       <Text style={styles.sectionTitle}>Categories</Text>
       <ScrollView horizontal>
-        <Image source={require('../../assets/product/c1.png')} style={styles.image2} />
-        <Image source={require('../../assets/product/c2.png')} style={styles.image2} />
-        <Image source={require('../../assets/product/c3.png')} style={styles.image2} />
+        <Image source={require('../../assets/category/a1.png')} style={styles.image2} />
+        <Image source={require('../../assets/category/a2.png')} style={styles.image2} />
+        <Image source={require('../../assets/category/a3.png')} style={styles.image2} />
+        <Image source={require('../../assets/category/p1.png')} style={styles.image2} />
+        <Image source={require('../../assets/category/p2.png')} style={styles.image2} />
+        <Image source={require('../../assets/category/p3.png')} style={styles.image2} />
+
       </ScrollView>
       <Text style={styles.sectionTitle}>List Products</Text>
       <ScrollView horizontal>{renderProducts}</ScrollView>
@@ -133,10 +160,15 @@ const styles = StyleSheet.create({
     height: 190,
   },
   image2: {
-    width: 100,
-    height: 100,
+    width: 90,
+    height: 90,
     marginTop: 10,
-    marginRight: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 10,
+    borderRadius: 5,
+    borderWidth: 2,
+    backgroundColor: '#99CCFF',
   },
   product: {
     alignItems: 'center',

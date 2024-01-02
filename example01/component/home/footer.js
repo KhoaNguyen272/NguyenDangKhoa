@@ -19,7 +19,11 @@ function Footer() {
             style={styles.ic}
             source={require("../../assets/search.png")}
           ></Image>
-          <Text style={styles.txt}>Search</Text>
+          <Text style={styles.txt}
+          onPress={() => {
+            navigation.navigate("home");
+          }}
+        >Search</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.menu}
