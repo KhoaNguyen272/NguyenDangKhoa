@@ -9,6 +9,9 @@ import Header from './component/home/header';
 import Body from './component/home/body';
 import Productdetail from './component/product/productDetail';
 import Cart from './component/cart/cart';
+import Search from './component/home/search';
+import Profile from './component/home/profile';
+import Login from './component/login/login';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -22,7 +25,7 @@ export default function App() {
   );
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" headerMode="none">
+      <Stack.Navigator initialRouteName="Login" headerMode="none">
         <Stack.Screen
           name="Home"
           component={HomeScreen}
@@ -47,6 +50,28 @@ export default function App() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            headerShown: false,
+          }}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -57,7 +82,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F5FFFA',
     justifyContent: 'center',
   },
 

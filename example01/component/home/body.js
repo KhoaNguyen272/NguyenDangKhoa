@@ -19,7 +19,9 @@ const Product = ({ item, addToCart }) => {
       </TouchableOpacity>
       <Text style={styles.title}>{item.title.length > 10 ? item.title.substring(0, 10) + '...' : item.title}</Text>
       <Text style={styles.price}>{item.price} USD</Text>
-      <Button title="Thêm vào giỏ hàng" onPress={() => addToCart(item)} />
+      <Button title="Thêm vào giỏ hàng" onPress={() => addToCart(item)} 
+      color="#838B83"
+      />
     </View>
   );
 };
@@ -106,17 +108,16 @@ const Body = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.sectionTitle}>Categories</Text>
+      <Text style={styles.sectionTitle}>Danh mục</Text>
       <ScrollView horizontal>
-        <Image source={require('../../assets/category/a1.png')} style={styles.image2} />
-        <Image source={require('../../assets/category/a2.png')} style={styles.image2} />
-        <Image source={require('../../assets/category/a3.png')} style={styles.image2} />
-        <Image source={require('../../assets/category/p1.png')} style={styles.image2} />
-        <Image source={require('../../assets/category/p2.png')} style={styles.image2} />
-        <Image source={require('../../assets/category/p3.png')} style={styles.image2} />
-
+        <Image source={require('../../assets/product/v1.png')} style={styles.image2} />
+        <Image source={require('../../assets/product/v2.png')} style={styles.image2} />
+        <Image source={require('../../assets/product/a3.png')} style={styles.image2} />
+        <Image source={require('../../assets/product/v3.png')} style={styles.image2} />
+        <Image source={require('../../assets/product/v4.png')} style={styles.image2} />
+        <Image source={require('../../assets/product/v5.png')} style={styles.image2} />
       </ScrollView>
-      <Text style={styles.sectionTitle}>List Products</Text>
+      <Text style={styles.sectionTitle}>Danh sách sản phẩm</Text>
       <ScrollView horizontal>{renderProducts}</ScrollView>
       {/* Nút chuyển trang */}
       <View style={styles.pagination}>
@@ -124,36 +125,42 @@ const Body = () => {
           title="Prev"
           onPress={() => setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))}
           disabled={currentPage === 1} // Disable nút Prev khi ở trang đầu
-        />
+          color="#838B83"
+          />
         <Text>{currentPage}</Text>
         <Button
           title="Next"
           onPress={() => setCurrentPage((prevPage) => (prevPage < totalPages ? prevPage + 1 : prevPage))}
           disabled={currentPage === totalPages} // Disable nút Next khi ở trang cuối
-        />
+          color="#838B83"
+          />
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
-    marginTop: 100,
+    marginTop: 50,
+    marginBottom: 70,
+    backgroundColor: '#E0EEE0',
+    justifyContent: 'space-around',
   },
   sectionTitle: {
     fontSize: 20,
-    marginTop: 10,
+    marginTop: 5,
     marginBottom: 10,
     textAlign: "center",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-around",
     borderRadius: 30,
     borderWidth: 1,
-    borderColor: "#CCC",
+    borderColor: "black",
     overflow: "hidden",
-    backgroundColor: "#0099FF",
-    color: "white",
+    backgroundColor: "#F0FFF0",
+    color: "green",
   },
   image: {
     width: 150,
@@ -162,18 +169,22 @@ const styles = StyleSheet.create({
   image2: {
     width: 90,
     height: 90,
-    marginTop: 10,
+    marginTop: 5,
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 10,
+    borderColor: 'black',
     borderRadius: 5,
-    borderWidth: 2,
-    backgroundColor: '#99CCFF',
+    borderWidth: 1,
+    backgroundColor: '#F0FFF0',
   },
   product: {
     alignItems: 'center',
-    backgroundColor: '#C0C0C0',
-    padding: 10,
+    backgroundColor: '#F0FFF0',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 5,
     marginRight: 10,
   },
   title: {
@@ -181,8 +192,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   price: {
-    fontSize: 20,
-    color: '#007BFF',
+    fontSize: 18,
+    color: '#000080',
   },
   pagination: {
     flexDirection: 'row',

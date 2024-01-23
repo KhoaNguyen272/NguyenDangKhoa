@@ -1,0 +1,7 @@
+{
+	"tb_users":[
+		{"username": "admin","passwood":"12345","fullname":"Admin"},
+		{"username": "ndk01","passwood":"12345","fullname":"Khoa 01"}
+	],
+	"tb_post":[]
+}

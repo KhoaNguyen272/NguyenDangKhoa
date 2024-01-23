@@ -11,17 +11,29 @@ const Productdetail = ({ route }) => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.vo}>
+          <View style={styles.ib}>
+              <Text style={styles.tc}>Chi tiết sản phẩm</Text>
+          </View>
+      <TouchableOpacity
+              style={styles.ib1}
+              onPress={() => {
+                navigation.navigate("Home");
+              }}
+            >
+          <Image
+            style={styles.ic}
+            source={require("../../assets/image/back-button.png")}
+          />
+            </TouchableOpacity>
+      </View>
       <View style={styles.content}>
         <Image style={styles.image} source={{ uri: item.image }} />
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.price}>{item.price} USD</Text>
-        <Button title="Thêm vào giỏ hàng" onPress={() => addToCart(item)} />
-      </View>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-        <Text style={styles.backButtonText}>Back</Text>
-      </TouchableOpacity>
-      
-      <Footer  />
+        <Button title="Thêm vào giỏ hàng" onPress={() => addToCart(item)} color="#838B83"/>
+      </View>      
+      <Footer/>
     </View>
   );
 };
@@ -30,6 +42,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 5,
+    backgroundColor: '#E0EEE0',
   },
   content: {
     flex: 1,
@@ -62,6 +75,40 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#007BFF',
   },
+  ic: {
+    width: 35,
+    height: 35,
+    top: 20,
+    left: 5,
+  },
+  ib1: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 140,
+  },
+  vo: {
+    flexDirection: 'row',
+    height: 90,
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    marginTop: -10,
+    backgroundColor: "#E0EEE0",
+    flexDirection: "row",
+    justifyContent: 'space-around',
+
+  },
+  ib: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 5,
+    width: 170,
+  },
+  tc:{
+    top: 20,
+    fontSize: 26,
+    fontWeight: 'bold',
+  },  
+
 });
 
 export default Productdetail;

@@ -2,13 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Image,TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { MaterialIcons } from '@expo/vector-icons';
-import Header from '../home/header';
-import Footer from '../home/footer';
+import { useNavigation } from "@react-navigation/native";
+
 
 const Cart = () => {
     const [cart, setCart] = useState([]);
-  
+    const navigation = useNavigation();
     useEffect(() => {
       const fetchCart = async () => {
         try {
@@ -114,7 +113,7 @@ const Cart = () => {
             <TouchableOpacity
               style={styles.ib1}
               onPress={() => {
-                navigation.navigate("home");
+                navigation.navigate("Home");
               }}
             >
           <Image
@@ -150,12 +149,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
+    backgroundColor: '#E0EEE0',
   },
   cartItem: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#fff', // Thêm màu nền để phân biệt các sản phẩm
+    backgroundColor: '#C1CDC1', // Thêm màu nền để phân biệt các sản phẩm
     padding: 10,
     borderRadius: 8,
     shadowColor: '#000',
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     color: '#007BFF',
   },
   clearButton: {
-    backgroundColor: '#ff5252', // Màu đỏ hoặc màu bạn muốn
+    backgroundColor: '#838B83', // Màu đỏ hoặc màu bạn muốn
     padding: 10,
     borderRadius: 8,
     marginTop: 16,
@@ -234,7 +234,6 @@ const styles = StyleSheet.create({
     top: 20,
     fontSize: 26,
     fontWeight: 'bold',
-
   },  
   ic: {
     width: 35,
